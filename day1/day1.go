@@ -58,7 +58,7 @@ func turnt(bunchOfData string) []int {
 	return result
 }
 
-func SolveTheSlighterHarderShit() {
+func SolveTheSlightlyHarderShit() {
 	data, err := ioutil.ReadFile("day1/the_shit.txt")
 	if err != nil {
 		panic(err)

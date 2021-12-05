@@ -1,115 +1,74 @@
 package day2
 
 import (
+	"advent/rkutil"
 	"fmt"
-	"io/ioutil"
 	"strconv"
 	"strings"
 )
 
-const areYouFuckingKiddingMeWindows = "\r"
-
-type Direction int
-
-const (
-	Forward = Direction(iota)
-	Up
-	Down
-	TheOtherWay
-)
-
-func SolveTheEasyShit() {
-	b, err := ioutil.ReadFile("day2/the_shit.txt")
-	if err != nil {
-		panic("at the disco")
-	}
-	s := string(b)
+func SolveEasier() string {
+	lines := rkutil.MustTrimmedLines("day2/input.txt")
 	depth := 0
 	horizontal := 0
-	for _, line := range strings.Split(s, "\n") {
-		line = strings.Trim(line, areYouFuckingKiddingMeWindows)
+	for _, line := range lines {
 		if line == "" {
 			continue
 		}
 		v := strings.Split(line, " ")
 		if len(v) != 2 {
-			panic("Did Courtney Kill Kurt?")
+			rkutil.Unexpected(fmt.Errorf("expecting 2 tokens: %d", len(v)))
 		}
 		value, err := strconv.Atoi(v[1])
 		if err != nil {
-			panic("I'm from Canada, they think I'm slow")
+			rkutil.Unexpected(fmt.Errorf("expected number: %s", v[1]))
 		}
-		direction := Forward
 		switch v[0] {
 		case "forward":
-			direction = Forward
-		case "up":
-			direction = Up
-		case "down":
-			direction = Down
-		default:
-			panic("Where the fuck are we going?")
-		}
-
-		switch direction {
-		case Forward:
 			horizontal += value
-		case Up:
+		case "up":
 			depth -= value
 			if depth < 0 {
 				depth = 0
 			}
-		case Down:
+		case "down":
 			depth += value
+		default:
+			rkutil.Unexpected(fmt.Errorf("unexpected direction: %s", v[0]))
 		}
 	}
-	fmt.Printf("the arbitrary multiplication leads to: %d\n", depth*horizontal)
+	return fmt.Sprintf("%d", depth*horizontal)
 }
 
-func SolveTheSlightlyHarderShit() {
-	b, err := ioutil.ReadFile("day2/the_shit.txt")
-	if err != nil {
-		panic("at the disco")
-	}
-	s := string(b)
+func SolveHarder() string {
+	lines := rkutil.MustTrimmedLines("day2/input.txt")
 	depth := 0
 	horizontal := 0
 	aim := 0
-	for _, line := range strings.Split(s, "\n") {
-		line = strings.Trim(line, areYouFuckingKiddingMeWindows)
+	for _, line := range lines {
 		if line == "" {
 			continue
 		}
 		v := strings.Split(line, " ")
 		if len(v) != 2 {
-			panic("Did Courtney Kill Kurt?")
+			rkutil.Unexpected(fmt.Errorf("expecting 2 tokens: %d", len(v)))
 		}
 		value, err := strconv.Atoi(v[1])
 		if err != nil {
-			panic("I'm from Canada, they think I'm slow")
+			rkutil.Unexpected(fmt.Errorf("expected number: %s", v[1]))
 		}
-		direction := Forward
 		switch v[0] {
 		case "forward":
-			direction = Forward
-		case "up":
-			direction = Up
-		case "down":
-			direction = Down
-		default:
-			panic("Where the fuck are we going?")
-		}
-
-		switch direction {
-		case Forward:
 			horizontal += value
 			depth += aim * value
-		case Up:
+		case "up":
 			aim -= value
 			// TODO: check for <0, or does it just not matter?
-		case Down:
+		case "down":
 			aim += value
+		default:
+			rkutil.Unexpected(fmt.Errorf("unexpected direction: %s", v[0]))
 		}
 	}
-	fmt.Printf("the arbitrary multiplication leads to: %d\n", depth*horizontal)
+	return fmt.Sprintf("%d", depth*horizontal)
 }

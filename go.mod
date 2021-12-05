@@ -1,3 +1,3 @@
-module github.com/mthurst0/adventofcode2021
+module advent
 
 go 1.17

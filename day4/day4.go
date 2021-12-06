@@ -149,7 +149,7 @@ func SolveEasier() string {
 			return fmt.Sprintf("%d", v*uncalled)
 		}
 	}
-	rkutil.Unexpected(fmt.Errorf("did not expect to arrive here"))
+	rkutil.UnexpectedCodePath()
 	return ""
 }
 
@@ -163,6 +163,6 @@ func SolveHarder() string {
 			return fmt.Sprintf("%d", v*uncalled)
 		}
 	}
-	rkutil.Unexpected(fmt.Errorf("did not expect to arrive here"))
+	rkutil.UnexpectedCodePath()
 	return ""
 }

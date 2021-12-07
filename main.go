@@ -6,6 +6,7 @@ import (
 	"advent/day3"
 	"advent/day4"
 	"advent/day5"
+	"advent/day6"
 	"fmt"
 )
 
@@ -30,4 +31,8 @@ func main() {
 	fmt.Println("day5 easier: " + day5.SolveEasier())
 	// 19939
 	fmt.Println("day5 harder: " + day5.SolveHarder())
+	// ???
+	fmt.Println("day6 easier: " + day6.SolveEasier())
+	// ???
+	fmt.Println("day6 harder: " + day6.SolveHarder())
 }

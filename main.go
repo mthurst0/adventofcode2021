@@ -35,4 +35,6 @@ func main() {
 	fmt.Println("day6 easier: " + day6.SolveEasier())
 	// ???
 	fmt.Println("day6 harder: " + day6.SolveHarder())
+
+	// day7+: unit tests
 }

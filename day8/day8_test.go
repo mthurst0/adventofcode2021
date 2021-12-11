@@ -5,7 +5,7 @@ import (
 	"testing"
 )
 
-func TestDay7(t *testing.T) {
+func TestDay8(t *testing.T) {
 	assert.Equal(t, 26, SolveEasierSample())
 	assert.Equal(t, 383, SolveEasier())
 	assert.Equal(t, 61229, SolveHarderSample())

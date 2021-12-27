@@ -38,3 +38,31 @@ func MustWhitespaceDelimitedNumbers(s string) []int {
 	}
 	return result
 }
+
+func MaxInt(lhs, rhs int) int {
+	if lhs > rhs {
+		return lhs
+	}
+	return rhs
+}
+
+func MinInt(lhs, rhs int) int {
+	if lhs < rhs {
+		return lhs
+	}
+	return rhs
+}
+
+func MaxUint64(lhs, rhs uint64) uint64 {
+	if lhs > rhs {
+		return lhs
+	}
+	return rhs
+}
+
+func MinUint64(lhs, rhs uint64) uint64 {
+	if lhs < rhs {
+		return lhs
+	}
+	return rhs
+}
